@@ -49,3 +49,27 @@ font = pygame.font.Font(None, 36)
 pygame.mixer.music.load('ost.mp3')
 pygame.mixer.music.set_volume(0.03)
 pygame.mixer.music.play(-1)
+class Coin(pygame.sprite.Sprite):
+    def init(self, x, y):
+        super().init()
+        self.image = coin_img
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, y)
+
+
+class Thorn(pygame.sprite.Sprite):
+    def init(self, x, y):
+        super().init()
+        self.image = thorn_img
+        self.rect = self.image.get_rect()
+        self.rect.center = (x, y)
+
+
+class Platform(pygame.sprite.Sprite):
+    def init(self, x, y, width, height):
+        super().init()
+        self.image = pygame.Surface((width, height))
+        self.image.fill(RED)
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
